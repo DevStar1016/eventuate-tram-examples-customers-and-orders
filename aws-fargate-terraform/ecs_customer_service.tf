@@ -1,5 +1,5 @@
 resource "aws_ecs_service" "svc_customer" {
-  name            = "svc-customer"
+  name            = "${var.prefix}-svc-customer"
   launch_type     = "FARGATE"
   cluster         = "${aws_ecs_cluster.cluster.id}"
   task_definition = "${aws_ecs_task_definition.task-customer.arn}"
@@ -19,7 +19,7 @@ resource "aws_ecs_service" "svc_customer" {
 
   network_configuration {
     security_groups = [
-      "${aws_security_group.sg_customer.id}",
+      "${aws_security_group.sg-ecs.id}",
     ]
 
     subnets = [
