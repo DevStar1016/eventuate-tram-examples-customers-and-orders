@@ -1,7 +1,7 @@
 package contracts.orderservice;
 
 org.springframework.cloud.contract.spec.Contract.make {
-    label 'orderCreatedEvent'
+    label 'customer-service-orderCreatedEvent'
     input {
         triggeredBy('orderCreated()')
     }
